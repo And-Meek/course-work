@@ -1,9 +1,9 @@
 {
-	"user": [
+	"users": [
 		{
 			"id": "001",
 			"login": "andrew",
-			"password": "123",
+			"password": "qwerty",
 			"registred_at": "2024-05-30",
 			"role_id": 0
 		}

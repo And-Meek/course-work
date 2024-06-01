@@ -1,25 +1,11 @@
 {
   "users": [
     {
-      "id": "001",
       "login": "andrew",
       "password": "qwerty",
-      "registred_at": "2024-05-30",
-      "role_id": 0
-    },
-    {
-      "login": "Ivan",
-      "password": "asdasd",
-      "registred_at": "2041-07-22 03:10",
-      "role_id": 2,
-      "id": "X-2Pxbu"
-    },
-    {
-      "login": "Ivan3",
-      "password": "asdasd",
-      "registred_at": "2040-05-25 08:36",
-      "role_id": 2,
-      "id": "Dh4oyP7"
+      "registred_at": "2040-06-05 22:40",
+      "role_id": 0,
+      "id": 1
     }
   ],
   "roles": [

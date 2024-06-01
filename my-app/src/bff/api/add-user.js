@@ -1,5 +1,5 @@
 import { HOST, PORT } from '../../constants';
-import { generateDate } from './generate-date';
+import { generateDate } from '../utils/generate-date';
 
 export const addUser = (login, password) =>
 	fetch(`${HOST}:${PORT}/users`, {

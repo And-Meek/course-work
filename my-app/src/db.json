@@ -102,37 +102,9 @@
     {
       "author_id": 1,
       "post_id": "001",
-      "published_at": "2056-05-20 23:21",
-      "content": "qwe",
-      "id": 2
-    },
-    {
-      "author_id": 1,
-      "post_id": "001",
-      "published_at": "2044-10-14 10:23",
-      "content": "qweqweasd",
-      "id": 3
-    },
-    {
-      "author_id": 1,
-      "post_id": "001",
-      "published_at": "2049-04-08 02:45",
-      "content": "asdasd",
-      "id": 4
-    },
-    {
-      "author_id": 1,
-      "post_id": "001",
       "published_at": "2036-01-31 05:36",
       "content": "asdasdzxczxc",
       "id": 5
-    },
-    {
-      "author_id": 1,
-      "post_id": "001",
-      "published_at": "2045-05-11 07:40",
-      "content": "asdasdasd",
-      "id": 6
     }
   ],
   "sessions": [

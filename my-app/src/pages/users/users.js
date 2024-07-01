@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
-import { H2, Content } from '../../components';
+import { H2, PrivateContent } from '../../components';
 import { useServerRequest } from '../../hooks';
 import { TableRow, UserRow } from './components';
-import styled from 'styled-components';
 import { ROLE } from '../../constants';
+import { checkAccess } from '../../utils';
+import { useSelector } from 'react-redux';
+import { selectUserRole } from '../../selectors';
+import styled from 'styled-components';
 
 const UsersContainer = ({ className }) => {
 	const [users, setUsers] = useState([]);
 	const [roles, setRoles] = useState([]);
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [shouldUpdateUsersList, setShouldUpdateUsersList] = useState(false);
+	const userRole = useSelector(selectUserRole);
 
 	const requestServer = useServerRequest();
 
 	useEffect(() => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) {
+			return;
+		}
 		Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
 			([usersRes, rolesRes]) => {
 				if (usersRes.error || rolesRes.error) {
@@ -24,7 +31,7 @@ const UsersContainer = ({ className }) => {
 				setRoles(rolesRes.res);
 			},
 		);
-	}, [requestServer, shouldUpdateUsersList]);
+	}, [requestServer, shouldUpdateUsersList, userRole]);
 
 	const onUserRemove = (userId) => {
 		requestServer('removeUser', userId).then(() => {
@@ -32,8 +39,8 @@ const UsersContainer = ({ className }) => {
 		});
 	};
 	return (
-		<div className={className}>
-			<Content error={errorMessage}>
+		<PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
+			<div className={className}>
 				<H2>Пользователи</H2>
 				<div>
 					<TableRow>
@@ -53,8 +60,8 @@ const UsersContainer = ({ className }) => {
 						/>
 					))}
 				</div>
-			</Content>
-		</div>
+			</div>
+		</PrivateContent>
 	);
 };
 
